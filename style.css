@@ -76,3 +76,24 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* Main Styling */
+
+.header {
+  max-width: 1280px;
+  background-image: url(./assets/images/hero-image.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 46px 0 46px 46px;
+}
+
+.hero-text {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.sub-text {
+  color: #fff;
+  font-size: 22px;
+}
