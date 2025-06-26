@@ -14,14 +14,13 @@ function getMenuArray(menuArray) {
     return `
     <section class="item-box">
     <div class="items">
-      <div class="icon">${menu.emoji}</div>
+      <span class="icon">${menu.emoji}</span>
       <div class="item-details">
         <h2 class="item-heading">${menu.name}</h2>
         <p class="item-ingredients">${menu.ingredients}</p>
-        <p class="item-price">${menu.price}</p>
+        <p class="item-price">$${menu.price}</p>
       </div>
-      <div class="add-item">+</div>
-      <p>This is index ${menu.id}</p>
+      <button class="add-item"><i class="fa-solid fa-plus"></i></button>
     </div>
   </section>
     `;
