@@ -11,14 +11,17 @@ footerEl.appendChild(pEl);
 
 function getMenuArray(menuArray) {
   const displayArray = menuArray.map((menu, index) => {
+    // Object Destructuring
+    const { emoji, name, ingredients, price } = menu;
+
     return `
     <section class="item-box">
     <div class="items">
-      <span class="icon">${menu.emoji}</span>
+      <span class="icon">${emoji}</span>
       <div class="item-details">
-        <h2 class="item-heading">${menu.name}</h2>
-        <p class="item-ingredients">${menu.ingredients}</p>
-        <p class="item-price">$${menu.price}</p>
+        <h2 class="item-heading">${name}</h2>
+        <p class="item-ingredients">${ingredients.join(", ")}</p>
+        <p class="item-price">$${price}</p>
       </div>
       <button class="add-item"><i class="fa-solid fa-plus"></i></button>
     </div>
