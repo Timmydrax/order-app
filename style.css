@@ -200,7 +200,8 @@ h6 {
   align-items: center;
   gap: 1rem;
 
-  > p {
+  > span,
+  p {
     font-size: 1.5rem;
     font-weight: 400;
   }

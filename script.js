@@ -69,7 +69,7 @@ function renderOrder() {
       const { name, price } = item;
       return `
   <div class='order-row'>
-        <p class='item-name'>${name}</p>
+        <span class='item-name'>${name}</span>
         <p>$${price}</p>
       </div>`;
     })
