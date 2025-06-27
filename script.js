@@ -56,7 +56,14 @@ function handleAddItem(id) {
 // Ordered Items Array
 let orderedItems = [];
 
+// Render Order Function
 function renderOrder() {
+  //  Logic to clear Order Items
+  if (orderedItems.length === 0) {
+    orderSection.innerHTML = "";
+    return;
+  }
+
   // Reduce method for calc. Total Price
   const totalPrice = orderedItems.reduce(
     (total, item) => total + item.price,
@@ -65,13 +72,13 @@ function renderOrder() {
 
   // Order Rows Template
   const orderRows = orderedItems
-    .map((item) => {
+    .map((item, index) => {
       const { name, price } = item;
       return `
   <div class='order-row'>
         <div class='item-name-box'>
           <span class='item-name'>${name}</span>
-          <button>remove</button>
+          <button class='remove-item' data-index='${index}'>remove</button>
         </div>
         <p>$${price}</p>
       </div>`;
@@ -96,4 +103,20 @@ function renderOrder() {
   `;
 
   orderSection.innerHTML = orderContainer;
+
+  // Remove Button
+  const removeItem = document.querySelectorAll(".remove-item");
+
+  removeItem.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      const index = button.dataset.index;
+      handleRemoveItem(Number(index));
+    });
+  });
+}
+
+// Listener to Remove Items
+function handleRemoveItem(index) {
+  orderedItems.splice(index, 1);
+  renderOrder();
 }

@@ -235,11 +235,6 @@ h6 {
   font-weight: bold;
 }
 
-/* .item-name {
-  display: flex;
-  flex-direction: row;
-} */
-
 .item-name-box {
   display: flex;
   flex-direction: row;
@@ -256,6 +251,7 @@ h6 {
     border: none;
     font-size: 12px;
     color: #bbbbbb;
+    cursor: pointer;
   }
 }
 
