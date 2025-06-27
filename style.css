@@ -116,6 +116,7 @@ h6 {
   padding: 46px;
 }
 
+/* Menu Section */
 .item-box {
   display: flex;
   flex-direction: row;
@@ -172,6 +173,66 @@ h6 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+/* Order Section */
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+
+  > h2 {
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.row-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  > p {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}
+
+.order-row-box {
+  padding-block-end: 1.5rem;
+  border-bottom: 1px solid #393333;
+  margin-block-end: 1rem;
+}
+
+.price-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 1rem;
+
+  > span {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}
+
+.complete-order {
+  color: #fff;
+  cursor: pointer;
+  padding-block: 0.5rem;
+  background-color: #16db99;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 /* FOOTER */

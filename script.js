@@ -68,8 +68,8 @@ function renderOrder() {
     .map((item) => {
       const { name, price } = item;
       return `
-  <div class= 'order-row'>
-        <p>${name}</p>
+  <div class='order-row'>
+        <p class='item-name'>${name}</p>
         <p>$${price}</p>
       </div>`;
     })
@@ -79,13 +79,16 @@ function renderOrder() {
   const orderContainer = `
    <div class='order-container'>
        <h2>Your Order</h2>
-    <div> 
-      ${orderRows}
+    <div class='row-container'> 
+      <div class='order-row-box'> 
+       ${orderRows}
+      </div>
       <div class='price-row'>
       <span>Total: </span> 
-      <span>$${totalPrice} </span> </div>
+      <span>$${totalPrice} </span> 
+      </div>
     </div>
-      <button> Complete Order</button>
+      <button class="complete-order" id='complete-order'>Complete Order</button>
     </div>
   `;
 
