@@ -258,15 +258,12 @@ h6 {
 }
 
 /* Payment Modal Section */
-.hidden {
-  display: none;
-}
 
 .modal {
   position: fixed;
   left: 0;
   top: 0;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -312,6 +309,19 @@ h6 {
     cursor: pointer;
   }
 }
+
+/* Confirmation Message */
+
+.message-container {
+  width: 100%;
+  background-color: #ecfdf5;
+  color: #065f46;
+  padding-block: 2rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 
 /* FOOTER */
 

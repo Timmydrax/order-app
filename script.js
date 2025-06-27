@@ -120,3 +120,28 @@ function handleRemoveItem(index) {
   orderedItems.splice(index, 1);
   renderOrder();
 }
+
+// Event Listener for Payment Button
+document.addEventListener("click", function (e) {
+  if (e.target.id === "complete-order") {
+    document.getElementById("modal").style.display = "flex";
+  }
+});
+
+// Display Return Message
+const paymentModal = document.getElementById("payment-modal");
+
+paymentModal.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const fullName = document.getElementById("fullName");
+  const fullNameInput = fullName.value;
+
+  document.getElementById("modal").style.display = "none";
+
+  orderSection.innerHTML = `
+  <div class="message-container">
+     <p class="message">Thanks, ${fullNameInput}! Your order is on it's way!</p>
+  </div>
+  `;
+});
