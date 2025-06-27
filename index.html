@@ -25,6 +25,47 @@
       <section class="container" id="container">
         <div class="menu-section" id="menu-section"></div>
         <div class="order-section" id="order-section"></div>
+        <div class="modal">
+          <div class="modal-content">
+            <h2>Enter Card Details</h2>
+            <form id="payment-modal" class="payment-modal">
+              <input
+                type="text"
+                placeholder="Enter your name"
+                aria-label="Full Name"
+                name="fullName"
+                id="fullName"
+                required
+              />
+
+              <input
+                type="text"
+                placeholder="Enter card number"
+                aria-label="Card Number"
+                name="cardNumber"
+                id="cardNumber"
+                maxlength="19"
+                inputmode="numeric"
+                pattern="\d{13,19}"
+                required
+              />
+
+              <input
+                type="text"
+                placeholder="Enter CVV"
+                aria-label="CVV Number"
+                id="cvv"
+                name="cvv"
+                pattern="\d{3,4}"
+                maxlength="4"
+                inputmode="numeric"
+                required
+              />
+
+              <button type="submit">Pay</button>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="footer" id="footer"></footer>
