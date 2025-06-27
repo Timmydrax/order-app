@@ -200,8 +200,7 @@ h6 {
   align-items: center;
   gap: 1rem;
 
-  > span,
-  p {
+  > p {
     font-size: 1.5rem;
     font-weight: 400;
   }
@@ -234,6 +233,30 @@ h6 {
   border: none;
   border-radius: 4px;
   font-weight: bold;
+}
+
+/* .item-name {
+  display: flex;
+  flex-direction: row;
+} */
+
+.item-name-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+
+  > span {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  > button {
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    color: #bbbbbb;
+  }
 }
 
 /* FOOTER */
