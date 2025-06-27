@@ -33,3 +33,16 @@ function getMenuArray(menuArray) {
 }
 
 container.innerHTML = getMenuArray(menuArray);
+
+function renderOrder() {}
+
+
+function handleAddItem() {
+  console.log("item-added");
+}
+
+container.addEventListener("click", function (e) {
+  if (e.target.classList.contains("add-item")) {
+    handleAddItem(e);
+  }
+});
