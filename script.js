@@ -1,10 +1,14 @@
 import { menuArray } from "./data.js";
 
 const container = document.getElementById("container");
+const menuSection = document.getElementById("menu-section");
+const orderSection = document.getElementById("order-section");
+
 const footerEl = document.getElementById("footer");
 const year = new Date().getFullYear();
 const pEl = document.createElement("p");
 
+// Footer Element
 pEl.classList.add("footer-content");
 pEl.textContent = `© ${year} Timmy_Drax. All rights reserved.`;
 footerEl.appendChild(pEl);
@@ -12,7 +16,7 @@ footerEl.appendChild(pEl);
 function getMenuArray(menuArray) {
   const displayArray = menuArray.map((menu, index) => {
     // Object Destructuring
-    const { emoji, name, ingredients, price } = menu;
+    const { emoji, name, ingredients, price, id } = menu;
 
     return `
     <section class="item-box">
@@ -23,7 +27,7 @@ function getMenuArray(menuArray) {
         <p class="item-ingredients">${ingredients.join(", ")}</p>
         <p class="item-price">$${price}</p>
       </div>
-      <button class="add-item"><i class="fa-solid fa-plus"></i></button>
+      <button class="add-item" data-id=${id}><i class="fa-solid fa-plus"></i></button>
     </div>
   </section>
     `;
@@ -32,17 +36,58 @@ function getMenuArray(menuArray) {
   return displayArray.join(" ");
 }
 
-container.innerHTML = getMenuArray(menuArray);
+menuSection.innerHTML = getMenuArray(menuArray);
 
-function renderOrder() {}
-
-
-function handleAddItem() {
-  console.log("item-added");
-}
-
+// Dynamic Event Listeners for the Buttons.
 container.addEventListener("click", function (e) {
-  if (e.target.classList.contains("add-item")) {
-    handleAddItem(e);
+  if (e.target.closest(".add-item")) {
+    const itemId = e.target.closest(".add-item").dataset.id;
+    handleAddItem(Number(itemId));
   }
 });
+
+// Function to add Items
+function handleAddItem(id) {
+  const selectedItem = menuArray.find((item) => item.id === id);
+  orderedItems.push(selectedItem);
+  renderOrder();
+}
+
+// Ordered Items Array
+let orderedItems = [];
+
+function renderOrder() {
+  // Reduce method for calc. Total Price
+  const totalPrice = orderedItems.reduce(
+    (total, item) => total + item.price,
+    0
+  );
+
+  // Order Rows Template
+  const orderRows = orderedItems
+    .map((item) => {
+      const { name, price } = item;
+      return `
+  <div class= 'order-row'>
+        <p>${name}</p>
+        <p>$${price}</p>
+      </div>`;
+    })
+    .join("");
+
+  // Order Container Template
+  const orderContainer = `
+   <div class='order-container'>
+       <h2>Your Order</h2>
+    <div> 
+      ${orderRows}
+      <div class='price-row'>
+      <span>Total: </span> 
+      <span>$${totalPrice} </span> </div>
+    </div>
+      <button> Complete Order</button>
+    </div>
+  `;
+
+  orderSection.innerHTML = orderContainer;
+}
